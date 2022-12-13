@@ -47,3 +47,6 @@
 .card img:hover{
   opacity: 0.9;
 }
+.card h1{
+  color: rgb(0, 0, 0);
+}
