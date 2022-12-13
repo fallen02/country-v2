@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Background from '../components/Background'
 import Card from '../components/Card'
@@ -26,7 +27,9 @@ export default function Home() {
       <div className= {styles.container}>
           <div className= {styles.cards}>
             {data.map(country => (
-              <Card key={country.name.common}  country = {country}/>
+              <Link href={`/${country.name.common}`} key={country.name.common}>
+              <Card country = {country}/>
+              </Link>
             ))}            
           </div>
        </div>
