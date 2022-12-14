@@ -63,7 +63,7 @@ export default function SingleCountry({...country}) {
         setArea(country.data[0].area)
         setGlink(country.data[0].maps.googleMaps)
         setPopulation(convertPopulation(country.data[0].population))
-    }, [])
+    }, [country.data])
 
   return (
     
