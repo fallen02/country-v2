@@ -1,3 +1,6 @@
+import SingleBackground from "../components/SingleBackground"
+import SingleCountry from "../components/SingleCountry"
+
 export const getStaticPaths = async () => {
   const res  = await fetch('https://restcountries.com/v3.1/all')
   const data = await res.json()
@@ -26,10 +29,10 @@ export const getStaticProps = async (context) => {
 
 export default function  country({country}) {
   return (
-    <div>
-      {country[0].name.common}
-      {country[0].name.common}
-    </div>
+  <>
+    <SingleBackground />
+    <SingleCountry data = {country}/>
+  </>
   )
 }
 

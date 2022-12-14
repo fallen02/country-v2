@@ -1,0 +1,13 @@
+.container{
+    position: relative;
+  }
+  .heading{
+    text-align: center;
+  }
+  .title{
+    padding-left: 20px;
+  }
+  .lable{
+    padding-left: 10%;
+    text-align: left;
+  }
