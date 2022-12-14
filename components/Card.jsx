@@ -1,4 +1,4 @@
-
+import Image from 'next/image';
 import styles from '../styles/Card.module.css'
 export default function Card({country}) {
     function click(){
@@ -24,7 +24,12 @@ export default function Card({country}) {
     }
   return (
         <div className= {styles.card} onClick = {click}>
-            <img src={country.flags.svg} alt="Flag"/>
+            <Image
+            src={country.flags.svg}
+            alt="Landscape picture"
+            width={800}
+            height={500}
+            />
             <h1>{country.name.common}</h1>
             <p>Population: {convertNumber(country.population)}</p>
         </div>    
