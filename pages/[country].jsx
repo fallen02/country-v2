@@ -26,10 +26,10 @@ export const getStaticProps = async (context) => {
 
 export default function  country({country}) {
   return (
-
     <div>
-      
+      {country[0].name.common}
       {country[0].name.common}
     </div>
   )
 }
+
