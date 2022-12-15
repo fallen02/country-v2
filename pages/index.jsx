@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Background from '../components/Background'
 import Card from '../components/Card'
+import HomeLoader from '../components/HomeLoader'
 import styles from '../styles/Card.module.css'
 
 
@@ -18,11 +19,16 @@ export default function Home() {
     .then(data => {
       setData(data)
     })
+    setLoad(true)
   }, [])
 
-  return (
-    <div className="">
-      
+  
+  return(
+    
+      <div className="">
+      <Head>
+        <title>Countries</title>
+      </Head>
       <Background/>
       <div className= {styles.container}>
           <div className= {styles.cards}>

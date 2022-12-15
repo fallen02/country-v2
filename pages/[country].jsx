@@ -1,5 +1,9 @@
+import { useState } from "react"
+import HomeLoader from "../components/HomeLoader"
 import SingleBackground from "../components/SingleBackground"
 import SingleCountry from "../components/SingleCountry"
+
+
 
 export const getStaticPaths = async () => {
   const res  = await fetch('https://restcountries.com/v3.1/all')
@@ -18,21 +22,21 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context) => {
+  
   const name = context.params.country
   const res = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
   const data = await res.json()
-
   return {
     props: {country: data}
   }
 }
 
-export default function  country({country}) {
+export default function  Country({country}) {
   return (
-  <>
-    <SingleBackground />
-    <SingleCountry data = {country}/>
-  </>
+    <div className="">
+      <SingleBackground />
+      <SingleCountry data = {country}/>
+    </div>
   )
 }
 
