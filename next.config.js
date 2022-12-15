@@ -9,6 +9,8 @@ const nextConfig = {
         
       },
     ],
+
+    unoptimized: true
     
   },
 }
