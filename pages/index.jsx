@@ -22,9 +22,13 @@ export default function Home() {
     setLoad(true)
   }, [])
 
+  if(!load){
+    return(
+      <HomeLoader/>
+    )
+  }
   
   return(
-    
       <div className="">
       <Head>
         <title>Countries</title>
