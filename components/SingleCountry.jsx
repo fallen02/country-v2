@@ -60,6 +60,7 @@ export default function SingleCountry({...country}) {
     }
 
     useEffect(() => {
+        console.log(country)
         setCur(Object.keys(country.data[0].currencies).toString())
         setName(country.data[0].name.common)
         setOfficial(country.data[0].name.official)

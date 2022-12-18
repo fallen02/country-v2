@@ -1,42 +1,28 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import HomeLoader from "../components/HomeLoader"
 import SingleBackground from "../components/SingleBackground"
 import SingleCountry from "../components/SingleCountry"
+import {useRouter} from "next/router"
 
-
-
-export const getStaticPaths = async () => {
-  const res  = await fetch('https://restcountries.com/v3.1/all')
-  const data = await res.json()
-
-  const paths = data.map(country => {
-    return{
-      params: {country: country.name.common}
+export async function getServerSideProps({params}){
+  const res = await fetch(`https://restcountries.com/v3.1/name/${params.country}?fullText=true`)
+  return{
+    props: {
+      countryDetails: await res.json(),
     }
-  })
-
-  return {
-    paths,
-    fallback: false
   }
 }
 
-export const getStaticProps = async (context) => {
-  
-  const name = context.params.country
-  const res = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
-  const data = await res.json()
-  return {
-    props: {country: data}
-  }
-}
-
-export default function  Country({country}) {
+export default function  Country({countryDetails}) {
+  if(countryDetails.status != 404)
+      return (
+        <div className="">
+          <SingleBackground />
+          <SingleCountry data = {countryDetails}/>
+        </div>
+      )
   return (
-    <div className="">
-      <SingleBackground />
-      <SingleCountry data = {country}/>
-    </div>
+    <div className="">Not found</div>
   )
 }
 
