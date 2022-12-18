@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react"
-import HomeLoader from "../components/HomeLoader"
+
 import SingleBackground from "../components/SingleBackground"
 import SingleCountry from "../components/SingleCountry"
-import {useRouter} from "next/router"
 
 export async function getServerSideProps({params}){
   const res = await fetch(`https://restcountries.com/v3.1/name/${params.country}?fullText=true`)
