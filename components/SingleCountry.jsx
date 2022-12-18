@@ -74,7 +74,7 @@ export default function SingleCountry({...country}) {
         setGlink(country.data[0].maps.googleMaps)
         setPopulation(convertPopulation(country.data[0].population))
         setLoad(true)
-    }, [country.data])
+    }, [country, country.data])
 
     if(!load)
   return (
